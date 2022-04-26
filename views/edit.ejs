@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Game listing</h1>
+    <form action="/games/<%=Game._id%>?_method=PUT" method="POST">
+        Game Title:<input type="text" name="title" value="<%=game.title%>">
+        Game Genre:<select name="Genre">
+            <option value="FPS">FPS</option>
+            <option value="Adventure">Adventure</option>
+            <option value="RPG">RPG</option>
+            <option value="Simulator">Simulator</option>
+        </select>
+        Completion Date: <input type="date" name="completed">
+
+
+    </form>
+</body>
+</html>
