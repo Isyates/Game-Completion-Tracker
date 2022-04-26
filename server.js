@@ -1,9 +1,11 @@
 const express = require('express')
-const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const gameListController = require('./controllers/games')
 require('dotenv').config()
+const bodyParser = require('body-parser')
+const app = express()
+const PORT = process.env.PORT || 3001
 // const { JSDOM } = require( "jsdom" );
 // const { window } = new JSDOM( "" );
 // const $ = require( "jquery" )( window );
@@ -20,8 +22,11 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 //middleware
 app.use(express.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+
 app.use('/gameserver', gameListController)
+
 
 const db = mongoose.connection
 
@@ -29,6 +34,5 @@ db.on('error', (err) => console.log(err.message + "is mongo not running?"))
 db.on('connected', () => console.log(" mongoose is connected"))
 db.on('disconnected', () => console.log("mongo disconnected"))
 
-const PORT = process.env.PORT || 3001
 
 app.listen(PORT,() => console.log(`running on port ${PORT}`))

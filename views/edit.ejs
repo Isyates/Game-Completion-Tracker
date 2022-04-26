@@ -8,15 +8,16 @@
 </head>
 <body>
     <h1>Edit Game listing</h1>
-    <form action="/games/<%=Game._id%>?_method=PUT" method="POST">
+    <form action="/gameserver/<%=game._id%>?_method=PUT" method="POST">
         Game Title:<input type="text" name="title" value="<%=game.title%>">
-        Game Genre:<select name="Genre">
+        Game Genre:<select name="genre">
             <option value="FPS">FPS</option>
             <option value="Adventure">Adventure</option>
             <option value="RPG">RPG</option>
             <option value="Simulator">Simulator</option>
         </select>
-        Completion Date: <input type="date" name="completed">
+        Completion Date: <input type="date" name="completed" >
+        <input type="submit" value="Submit">
 
 
     </form>

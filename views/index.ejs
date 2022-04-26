@@ -9,11 +9,15 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/gameserver/new"> Add a new game</a>
     <ul>
         <ul>
             <% games.forEach(game => { %>
                 <a href="/gameserver/<%=game._id %>"> <%=game.title%></a>
                 <h3> <%=game.completed %></h3>
+                <form action="/gameserver/<%=game._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete Entry">
+                </form>
              <% }) %>
 
 
