@@ -24,10 +24,14 @@ mongoose.connect(process.env.DATABASE_URL, {
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+app.use(express.static('public'));
 
 app.use('/gameserver', gameListController)
 
 
+app.get('/', (req, res) => {
+    res.redirect('/gameserver');
+});
 const db = mongoose.connection
 
 db.on('error', (err) => console.log(err.message + "is mongo not running?"))

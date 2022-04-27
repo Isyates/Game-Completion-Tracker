@@ -15,11 +15,11 @@ gameRoute.get('/new', (req,res) =>{
     res.render('new.ejs')
 })
 
-gameRoute.get('/', (req,res) => {
-Game.find({},(err,allGames) => {
+gameRoute.get('/', (req,res) =>  Game.find({},(err,allGames) => {
     res.render('index.ejs', {games:allGames})
 })
-})
+)
+
 
  gameRoute.get('/:id', async(req,res)=> {
     Game.findById(req.params.id, (err,allGames) => {
