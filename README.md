@@ -12,6 +12,8 @@ Utilizing JavaScript, HTML, CSS
 
 Get started: the following link will take you directly to the app which has some information automatically entered. You can then select the option to delete the currently entered information and begin your own list creation
 
+https://game-completion-manager.herokuapp.com/gameserver
+
 In the future I would like to connect this information to Steam's game & Profile APIs, to allow you to link directly and pull the games information as you complete them, along with all the detailed information listed in the Steam Database.
 
 
